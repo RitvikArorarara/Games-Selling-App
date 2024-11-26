@@ -9,7 +9,7 @@ const Featured = () => {
         </div>
         <ImgPaper></ImgPaper>
         <div className="flex justify-center items-center">
-          <button className="px-6 py-3 mt-16 bg-transparent border-2 border-black rounded-md hover:bg-white hover:text-black transition duration-300">
+          <button className="px-6 py-3 mt-16 bg-transparent border-2 border-black rounded-md hover:bg-black hover:text-white transition duration-300 focus:ring-2 focus:ring-flack focus:outline-none">
             Latest Games
           </button>
         </div>

@@ -14,7 +14,7 @@ const Hero = () => {
             Play F1® 24 for Free This Weekend
           </h1>
           <p className="text-lg md:text-xl max-w-2xl mb-8">
-            Experience F1® 24 from November 21st to November 25th*, for free on
+            Experience F1® 24 from November 25th to November 30th*, for free on
             this platform to enjoy double XP and unlock new content and
             exclusive rewards!
           </p>
@@ -32,7 +32,7 @@ const Hero = () => {
           <div className=" relative z-10 text-xl p-16 flex justify-start items-center text-wrap text-center text-white h-full max-w-screen-sm" >
             <p>Make adorable friends and discover creative adventures.</p>
           </div>
-          <button className="px-6 py-3 bg-transparent border-2 border-white rounded-md hover:bg-white hover:text-black transition duration-300">
+          <button className="px-6 py-3 bg-transparent border-2 text-white border-white rounded-md hover:bg-white hover:text-black transition duration-300">
             Buy Now
           </button>
         </div>

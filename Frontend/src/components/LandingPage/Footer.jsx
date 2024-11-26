@@ -11,7 +11,7 @@ const Footer = () =>{
                 Laboriosam aliquid adipisci nulla dolor consequuntur aperiam blanditiis est labore voluptatum! Sapiente accusamus ab recusandae nisi corrupti obcaecati delectus consectetur tempora dolorum illo voluptates, rem ratione dolores, dolore magnam odit?</p>
             </div>
             <div>
-            <button className="px-6 py-3 bg-transparent border-2 border-black rounded-md hover:bg-white hover:text-black transition duration-300">Contact us</button>
+            <button className="px-6 py-3 mt-10 bg-transparent border-2 border-black rounded-md hover:bg-black hover:text-white transition duration-300 focus:ring-2 focus:ring-flack focus:outline-none">Contact us</button>
             </div>
         </div>
         </>
