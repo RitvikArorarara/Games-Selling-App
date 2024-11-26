@@ -8,15 +8,15 @@ userRouter.post("/signup", function (req, res) {
   });
 });
 
-userRouter.post("/user/signin", function (req, res) {
+userRouter.post("/signin", function (req, res) {
   res.json({
     message: "sign in endpoint",
   });
 });
 
-userRouter.get("/user/purchases", function (req, res) {
+userRouter.get("/purchases", function (req, res) {
   res.json({
-    message: "user bought games endpoint",
+    message: "user bought these games endpoint",
   });
 });
 

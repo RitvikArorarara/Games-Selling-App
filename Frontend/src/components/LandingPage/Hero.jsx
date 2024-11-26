@@ -23,13 +23,14 @@ const Hero = () => {
           </button>
         </div>
       </div>
-      <div className="relative bg-cover bg-center h-[20vh] max-w-screen"
-       style={{
-        backgroundImage:"url('SIMS-Hero.jpg')"
-       }}>
-        
+      <div
+        className="relative bg-cover bg-center h-[20vh] max-w-screen"
+        style={{
+          backgroundImage: "url('SIMS-Hero.jpg')",
+        }}
+      >
         <div className="sm:absolute sm:inset-0 flex flex-wrap justify-evenly items-center">
-          <div className=" relative z-10 text-xl p-16 flex justify-start items-center text-wrap text-center text-white h-full max-w-screen-sm" >
+          <div className=" relative z-10 text-xl p-16 flex justify-start items-center text-wrap text-center text-white h-full max-w-screen-sm">
             <p>Make adorable friends and discover creative adventures.</p>
           </div>
           <button className="px-6 py-3 bg-transparent border-2 text-white border-white rounded-md hover:bg-white hover:text-black transition duration-300">
