@@ -1,16 +1,25 @@
 const { Router } = require("express");
-
+const { userMiddleware } = require("../middleware/user");
+const { purchaseModel, gameModel } = require("../db");
 const gameRouter = Router();
 
-gameRouter.post("/purchase", function (req, res) {
+gameRouter.post("/purchase",userMiddleware,async function (req, res) { //this endpoint is to buy a course
+  const userId = req.userId;
+  const gameId = req.body.gameId;
+
+  await purchaseModel.create({
+    userId,
+    gameId
+  })
   //expecting to get payment but not including that functionality just add
   res.json({
-    message: "sign up endpoint",
+    message: "You have successfully bought this game",
   });
 });
-gameRouter.post("/preview", function (req, res) {
+gameRouter.get("/preview",async function (req, res) { //all the current games in the db
+  const games = await gameModel.find({})
   res.json({
-    message: "all the games endpoint",
+   games
   });
 });
 

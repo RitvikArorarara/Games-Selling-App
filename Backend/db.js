@@ -1,14 +1,18 @@
-import MONGO_URL from '.env'
+//import MONGO_URL from '.env'
 const mongoose = require("mongoose");
-mongoose.connect(MONGO_URL)
+mongoose.connect(process.env.MONGO_URL)
 const Schema = mongoose.Schema;
-const ObjectId = mongoose.type.ObjectId;
+const ObjectId = mongoose.Types.ObjectId;
 
 const userSchema = new Schema({
     email : {type:String , unique:true},
     password : String,
     firstName : String,
-    lastName : String
+    lastName : String,
+    // purchasedGames : [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref : 'Game'
+    // }]
 })
 
 const adminSchema = new Schema({
@@ -22,19 +26,30 @@ const gameSchema = new Schema({
     title : String,
     thumbnail : String,
     description : String,
-    price : Number,
+    game_url:String,
+    genre : String,
+    platform:String,
     publisher: String,
-    id:ObjectId
+    developer:String,
+    release_date:Date,
+    price:Number,
+    creatorid:ObjectId
+})
+const purchaseSchema = new Schema({
+    userId : ObjectId,
+    gameId : ObjectId
 })
 
 const userModel = mongoose.model("Users", userSchema);
 const adminModel = mongoose.model("Admin", adminSchema);
 const gameModel = mongoose.model("Games", gameSchema);
+const purchaseModel = mongoose.model("Purchases", purchaseSchema)
 
 module.exports=(
     {
         userModel,
         adminModel,
-        gameModel
+        gameModel,
+        purchaseModel
     }
 )
