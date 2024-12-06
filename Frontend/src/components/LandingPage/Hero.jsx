@@ -18,7 +18,7 @@ const Hero = () => {
             this platform to enjoy double XP and unlock new content and
             exclusive rewards!
           </p>
-          <button className="px-6 py-3 bg-transparent border-2 border-white rounded-md hover:bg-white hover:text-black transition duration-300">
+          <button  className="px-6 py-3 bg-transparent border-2 border-white rounded-md hover:bg-white hover:text-black transition duration-300">
             Learn More
           </button>
         </div>
@@ -33,8 +33,8 @@ const Hero = () => {
           <div className=" relative z-10 text-xl p-16 flex justify-start items-center text-wrap text-center text-white h-full max-w-screen-sm">
             <p>Make adorable friends and discover creative adventures.</p>
           </div>
-          <button className="px-6 py-3 bg-transparent border-2 text-white border-white rounded-md hover:bg-white hover:text-black transition duration-300">
-            Buy Now
+          <button className="px-6 py-3 bg-transparent border-2 text-white border-white rounded-md hover:bg-white hover:text-black transition duration-300" >
+           Buy Now
           </button>
         </div>
       </div>

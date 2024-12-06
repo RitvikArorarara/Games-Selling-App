@@ -1,5 +1,4 @@
 import "./App.css";
-
 import Featured from "./components/LandingPage/Featured";
 import Footer from "./components/LandingPage/Footer";
 import Hero from "./components/LandingPage/Hero";

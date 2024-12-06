@@ -1,10 +1,10 @@
-import * as React from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import Cards from "./Cards";
-import ImgPaper from "./ImgPaper";
+import { useState } from "react";
+import { TopUpdateTabs } from "./TopUpdateTabs";
+import InfoCard from "./InfoCard";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -36,11 +36,13 @@ function a11yProps(index) {
 }
 
 export default function UpdateTabs() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
+  
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+ 
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -58,14 +60,17 @@ export default function UpdateTabs() {
         </Tabs>
       </Box>
       <div>
-        <CustomTabPanel value={value} index={0}>
-          <ImgPaper></ImgPaper>
+        <CustomTabPanel value={value} index={0} >
+          {/* <TopUpdateTabs type={"MMORPG"} ></TopUpdateTabs> */}
+          <InfoCard type={"MMORPG"} ></InfoCard>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          <ImgPaper></ImgPaper>
+        {/* <TopUpdateTabs type={"Shooter"} ></TopUpdateTabs> */}
+        <InfoCard type={"Shooter"} ></InfoCard>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-          <ImgPaper></ImgPaper>
+        {/* <TopUpdateTabs type={"Strategy"} ></TopUpdateTabs> */}
+        <InfoCard type={"Strategy"} ></InfoCard>
         </CustomTabPanel>
       </div>
     </Box>
