@@ -1,18 +1,33 @@
 import "./App.css";
-import Featured from "./components/LandingPage/Featured";
-import Footer from "./components/LandingPage/Footer";
-import Hero from "./components/LandingPage/Hero";
 import Navbar from "./components/LandingPage/Navbar";
-import Updates from "./components/LandingPage/Updates";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import LandingPage from "./components/LandingPage/LandingPage";
+import { AllGames } from "./components/AllGames/Allgames";
+import Footer from "./components/LandingPage/Footer";
+import { ErrorPage } from "./components/ErrorPage";
+import SignIn from "./components/FormActions/SignIn";
+import SignUp from "./components/FormActions/SignUp";
+import Purchases from "./components/Purchases"
+
+
 
 function App() {
   return (
     <>
-      <Navbar></Navbar>
-      <Hero></Hero>
-      <Featured></Featured>
-      <Updates></Updates>
-      <Footer></Footer>
+ 
+        <BrowserRouter>
+          <Navbar></Navbar>
+          <Routes>
+            <Route path="/" element={<LandingPage />}></Route>
+            <Route path="/allGames" element={<AllGames></AllGames>}></Route>
+            <Route path="/signup" element={<SignUp></SignUp>}></Route>
+            <Route path="/signin" element={<SignIn></SignIn>}></Route>
+            <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
+            <Route path="/purchases" element={<Purchases></Purchases>}></Route>
+          </Routes>
+          <Footer></Footer>
+        </BrowserRouter>
+       
     </>
   );
 }

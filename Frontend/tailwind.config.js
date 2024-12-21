@@ -7,7 +7,7 @@ export default {
   ],
   theme: {
     fontFamily:{
-
+      'sans': ['Satoshi','Supreme', 'sans-serif']
     },
     extend: {
       display:["group-hover"]

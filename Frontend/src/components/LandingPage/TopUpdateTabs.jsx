@@ -1,4 +1,4 @@
-import { gameList } from "../../GameData/gameList";
+
 export function TopUpdateTabs({ type }) {
   const shooter = gameList.filter((shoot) => shoot.genre === type);
 

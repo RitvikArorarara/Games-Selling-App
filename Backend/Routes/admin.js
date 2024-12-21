@@ -1,28 +1,54 @@
+const bcrypt = require("bcrypt");
 const { Router } = require("express");
 const adminRouter = Router();
 const { adminModel, gameModel } = require("../db");
 const jwt = require("jsonwebtoken");
 const { JWT_ADMIN_SECRET } = require("../config");
 const { adminMiddleware } = require("../middleware/admin");
+const {z} = require("zod")
 //bcrypt for hashing password
 //zod for input validation
 //jsonwebtoken for jwt
 
 adminRouter.post("/signup", async function (req, res) {
+  const requiredBody = z.object({
+    email: z.string().min(6).max(100).email(),
+    password: z.string().min(6).max(25),
+    firstName: z.string(),
+    lastName: z.string(),
+  });
+
+  const parsedDataWithSuccess = requiredBody.safeParse(req.body);
+  if (!parsedDataWithSuccess.success) {
+    res.json({
+      message: "Incorrect format",
+      error: parsedDataWithSuccess.error,
+    });
+    return;
+  }
   const { email, password, firstName, lastName } = req.body;
   //add zod validation
   //Hash the password here as plaintext  cannot be stored in DB
-  // need to put is in try catch
-  await adminModel.create({
-    email: email,
-    password: password,
-    firstName: firstName,
-    lastName: lastName,
-  });
+  let errorThown = false;
+  try {
+    const hashedPassword = await bcrypt.hash(password, 5);
 
-  res.json({
-    message: "Sign up Success",
-  });
+    await adminModel.create({
+      email: email,
+      password: hashedPassword,
+      firstName: firstName,
+      lastName: lastName,
+    });
+  } catch (e) {
+    res.json({
+      message: "Admin already exists",
+    });
+  }
+  if (!errorThown) {
+    res.json({
+      message: "Sign up Success",
+    });
+  }
 });
 
 adminRouter.post("/signin", async function (req, res) {
@@ -31,10 +57,17 @@ adminRouter.post("/signin", async function (req, res) {
   //todo : ideally password is hashed hence cannot compare the hashed password to the db password
   const admin = await adminModel.findOne({
     email: email,
-    password: password,
   });
+  if (!admin) {
+    res.status(403).json({
+      message: "This admin does not exists",
+    });
+    return;
+  }
 
-  if (admin) {
+  const passwordMatch = await bcrypt.compare(password, admin.password);
+
+  if (passwordMatch) {
     jwt.sign(
       {
         id: admin._id,

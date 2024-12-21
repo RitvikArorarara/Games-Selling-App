@@ -1,4 +1,18 @@
 export const gameList = [
+    
+  {
+    "id": 800,
+      "title": "F1",
+      "thumbnail": "f124-verstappen.jpg",
+      "short_description": "F1 is a racing video game series that simulates the FIA Formula One World Championship.",
+      "game_url": "https://www.ea.com/games/f1/f1-24",
+      "genre": "Racing",
+      "platform": "PC (Windows)",
+      "publisher": "EA",
+      "developer": "EA",
+      "release_date": "2024-06-31",
+      "freetogame_profile_url": "https://www.ea.com"
+  },
   {
       "id": 582,
       "title": "Tarisland",
@@ -5238,4 +5252,5 @@ export const gameList = [
       "release_date": "1997-01-07",
       "freetogame_profile_url": "https://www.freetogame.com/tibia"
   }
+
 ]
