@@ -3,7 +3,6 @@ const { Router, response } = require("express");
 const { userModel, purchaseModel, gameModel } = require("../db");
 const jwt = require("jsonwebtoken");
 const { JWT_USER_SECRET } = require("../config");
-const { userMiddleware } = require("../middleware/user");
 const { z } = require("zod");
 
 const userRouter = Router();
@@ -86,26 +85,7 @@ userRouter.post("/signin", async function (req, res) {
     });
   }
 });
-
-userRouter.get("/purchases", userMiddleware, async function (req, res) {
-  //all the games bought by a user
-
-  const userId = req.userId;
-
-  const purchases = await purchaseModel.find({
-    userId,
-  });
-
-  const gameData = await gameModel.findOne({
-    _id: { $in: purchases.map((x) => x.gameId) },
-  });
-
-  res.json({
-    purchases,
-    gameData,
-  });
-});
-
+ 
 module.exports = {
   userRouter: userRouter,
 };

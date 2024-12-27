@@ -1,35 +1,31 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Purchases = () => {
   const [purchasedGames, setPurchasedGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+   useEffect(() => {
     const fetchPurchasedGames = async () => {
       try {
         const token = localStorage.getItem("token");
+        if (!token) {
+          setError(" Please log in.");
+          setLoading(false);
+          return;
+        }
+
         const response = await axios.get(
-          "http://localhost:3001/api/v1/user/purchases",
+          "http://localhost:3001/api/v1/game/purchased",
           {
-            userId: userId,
             headers: {
-              token: `Bearer ${token}`,
+              "Authorization" : `Bearer ${token}`,
             },
           }
         );
 
-        if (response.data.purchases && response.data.gameData) {
-          // Combine purchase data with game data
-          const combinedData = response.data.purchases.map((purchase) => ({
-            ...purchase,
-            ...response.data.gameData,
-          }));
-          setPurchasedGames(combinedData);
-        } else {
-          setPurchasedGames([]);
-        }
+        setPurchasedGames(response.data.purchasedGames);
         setLoading(false);
       } catch (err) {
         setError("Failed to fetch purchased games");
@@ -55,7 +51,7 @@ const Purchases = () => {
     );
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 ">
       <h1 className="text-3xl font-bold mb-6">Your Purchased Games</h1>
       {purchasedGames.length === 0 ? (
         <p className="text-xl text-gray-600">
@@ -79,16 +75,13 @@ const Purchases = () => {
                 <p className="text-gray-600 mt-1">
                   Developer: {game.developer}
                 </p>
-                <p className="text-gray-600 mt-1">
-                  Purchase Date: {new Date(game.createdAt).toLocaleDateString()}
-                </p>
                 <a
                   href={game.game_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
                 >
-                  Play Game
+                 Download From Site
                 </a>
               </div>
             </div>
@@ -100,3 +93,4 @@ const Purchases = () => {
 };
 
 export default Purchases;
+

@@ -1,29 +1,36 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { TextField, Button, CircularProgress, Alert } from '@mui/material';
-import { LockOutlined } from '@mui/icons-material';
+import React, { useState } from "react";
+import axios from "axios";
+import { TextField, Button, CircularProgress, Alert } from "@mui/material";
+import { LockOutlined } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/user/signin', {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:3001/api/v1/user/signin",
+        {
+          email,
+          password,
+        }
+      );
+     
       localStorage.setItem('token', response.data.token);
-      // Redirect to dashboard or home page
-      // You can use React Router's useNavigate hook for this
+      navigate("/allgames");
     } catch (error) {
-      setError(error.response?.data?.message || 'An error occurred during sign in');
+      setError(
+        error.response?.data?.message || "An error occurred during sign in"
+      );
     } finally {
       setLoading(false);
     }
@@ -36,7 +43,11 @@ const SignIn = () => {
           <LockOutlined className="text-primary-600 text-4xl mb-2" />
           <h1 className="text-2xl font-bold">Sign In</h1>
         </div>
-        {error && <Alert severity="error" className="mb-4">{error}</Alert>}
+        {error && (
+          <Alert severity="error" className="mb-4">
+            {error}
+          </Alert>
+        )}
         <form onSubmit={handleSignIn} className="space-y-4">
           <TextField
             fullWidth
@@ -64,7 +75,7 @@ const SignIn = () => {
             disabled={loading}
             className="py-2"
           >
-            {loading ? <CircularProgress size={24} /> : 'Sign In'}
+            {loading ? <CircularProgress size={24} /> : "Sign In"}
           </Button>
         </form>
         <div className="mt-4 text-center">
@@ -78,4 +89,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-

@@ -26,11 +26,23 @@ export function AllGames() {
     fetchGames();
   }, []);
   async function handlePurchaseClick(game) {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.error("No token found. Please log in.");
+     navigate("/signin");
+      return;
+    }
     try {
+      
       const response = await axios.post(
         "http://localhost:3001/api/v1/game/purchase",
         {
           gameId: game._id,
+        },
+        {
+          headers: {
+            "Authorization":`Bearer ${token}` 
+          },
         }
       );
       if (response.data.message === "You have successfully bought this game") {
@@ -88,7 +100,8 @@ export function AllGames() {
               </div>
             </div>
             <div className="p-3">
-              <p>{game.description}</p>
+              <h2 className="text-xl font-semibold mt-2">{game.title}</h2>
+              <p className="mt-2 text-lg ">{game.short_description}</p>
               <p className="mt-2 text-sm text-gray-600">Genre: {game.genre}</p>
               <p className="mt-2 text-lg font-bold">${game.price}</p>
             </div>

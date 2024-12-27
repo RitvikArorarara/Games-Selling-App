@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { TextField, Button, CircularProgress, Alert } from '@mui/material';
 import { PersonAddOutlined } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const SignUp = () => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,8 +27,7 @@ const SignUp = () => {
     try {
       const response = await axios.post('http://localhost:3001/api/v1/user/signup', formData);
       if (response.data.message === 'Sign up Success') {
-        // Redirect to sign in page or directly sign in the user
-        // You can use React Router's useNavigate hook for this
+      navigate('/signin');
       } else {
         setError(response.data.message || 'An error occurred during sign up');
       }
