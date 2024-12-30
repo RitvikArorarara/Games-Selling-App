@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const handleSignOut = () => {
     localStorage.removeItem("token");
+    navigate("/");
     window.location.reload();
   }
   return (
