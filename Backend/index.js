@@ -17,13 +17,22 @@ app.get("/", (req, res) => {
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/game", gameRouter);
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
 
 async function main() {
-  await mongoose.connect(process.env.MONGO_URL);
-  if (require.main === module) {
-    const PORT = process.env.PORT;
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  try {
+    await mongoose.connect(process.env.MONGO_URL);
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("Failed to connect to MongoDB:", error);
+    process.exit(1);
   }
 }
+
 main();
+
 module.exports = app;

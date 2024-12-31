@@ -25,7 +25,7 @@ const SignUp = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/user/signup', formData);
+      const response = await axios.post('http://localhost:3000/api/v1/user/signup', formData);
       if (response.data.message === 'Sign up Success') {
       navigate('/signin');
       } else {

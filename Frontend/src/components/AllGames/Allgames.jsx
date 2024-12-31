@@ -13,7 +13,7 @@ export function AllGames() {
     async function fetchGames() {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/v1/game/preview"
+          "http://localhost:3000/api/v1/game/preview"
         );
         setGames(response.data.games);
         setLoading(false);
