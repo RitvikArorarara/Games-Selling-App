@@ -17,7 +17,7 @@ const Purchases = () => {
         }
 
         const response = await axios.get(
-          "http://localhost:3001/api/v1/game/purchased",
+          "https://games-selling-app.vercel.app/api/v1/game/purchased",
           {
             headers: {
               "Authorization" : `Bearer ${token}`,

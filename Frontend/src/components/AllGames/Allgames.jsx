@@ -13,7 +13,7 @@ export function AllGames() {
     async function fetchGames() {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/game/preview"
+          "https://games-selling-app.vercel.app/api/v1/game/preview"
         );
         setGames(response.data.games);
         setLoading(false);
@@ -35,7 +35,7 @@ export function AllGames() {
     try {
       
       const response = await axios.post(
-        "http://localhost:3001/api/v1/game/purchase",
+        "https://games-selling-app.vercel.app/api/v1/game/purchase",
         {
           gameId: game._id,
         },
