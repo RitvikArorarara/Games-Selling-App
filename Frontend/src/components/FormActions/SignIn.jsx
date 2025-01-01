@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { TextField, Button, CircularProgress, Alert } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -79,7 +79,7 @@ const SignIn = () => {
           </Button>
         </form>
         <div className="mt-4 text-center">
-          <a href="https://games-selling-app-ritvik.vercel.app/signup" className="text-primary-600 hover:underline">
+          <a href="\signup" className="text-primary-600 hover:underline">
             Don't have an account? Sign Up
           </a>
         </div>
