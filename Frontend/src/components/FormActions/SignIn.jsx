@@ -79,7 +79,7 @@ const SignIn = () => {
           </Button>
         </form>
         <div className="mt-4 text-center">
-          <a href="/signup" className="text-primary-600 hover:underline">
+          <a href="https://games-selling-app-ritvik.vercel.app/signup" className="text-primary-600 hover:underline">
             Don't have an account? Sign Up
           </a>
         </div>
