@@ -24,8 +24,8 @@ const SignIn = () => {
           password,
         }
       );
-     
-      localStorage.setItem('token', response.data.token);
+
+      localStorage.setItem("token", response.data.token);
       navigate("/allgames");
     } catch (error) {
       setError(
@@ -79,9 +79,9 @@ const SignIn = () => {
           </Button>
         </form>
         <div className="mt-4 text-center">
-          <a href="\signup" className="text-primary-600 hover:underline">
+          <Link to="/signup" className="text-primary-600 hover:underline">
             Don't have an account? Sign Up
-          </a>
+          </Link>
         </div>
       </div>
     </div>

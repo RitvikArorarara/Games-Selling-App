@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { TextField, Button, CircularProgress, Alert } from '@mui/material';
 import { PersonAddOutlined } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -97,9 +97,9 @@ const SignUp = () => {
           </Button>
         </form>
         <div className="mt-4 text-center">
-          <a href="\signin" className="text-primary-600 hover:underline">
+          <Link to="/signin" className="text-primary-600 hover:underline">
             Already have an account? Sign In
-          </a>
+          </Link>
         </div>
       </div>
     </div>
