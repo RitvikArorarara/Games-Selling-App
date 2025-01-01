@@ -18,7 +18,7 @@ const SignIn = () => {
 
     try {
       const response = await axios.post(
-        "https://games-selling-app.vercel.app/api/v1/game/preview/api/v1/user/signin",
+        "https://games-selling-app.vercel.app/api/v1/user/signin",
         {
           email,
           password,
