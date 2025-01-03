@@ -91,16 +91,6 @@ Here are some key API endpoints available in the backend:
 | POST   | `/api/games`            | Add a new game (admin only)         |
 | DELETE | `/api/games/:id`        | Delete a game (admin only)          |
 
-## Contributing
-
-Contributions are welcome! If you have suggestions or improvements, please fork the repository and submit a pull request.
-
-1. Fork the project.
-2. Create your feature branch (`git checkout -b feature/YourFeature`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Open a pull request.
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
