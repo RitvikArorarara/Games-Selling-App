@@ -1,4 +1,9 @@
+
+
 const Hero = () => {
+  let date = (new Date().getDate());
+
+  let newDate = date + 5;
   return (
     <>
       <div
@@ -14,7 +19,7 @@ const Hero = () => {
             Play F1® 24 for Free This Weekend
           </h1>
           <p className="text-lg md:text-xl max-w-2xl m-8">
-            Experience F1® 24 from November 25th to November 30th*, for free on
+            Experience F1® 24 from {date} January to {newDate} January , for free on
             this platform to enjoy double XP and unlock new content and
             exclusive rewards!
           </p>
