@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
->>>>>>> d5de83a35284c5ff93e3a7f951048f77f8fbe533
 # Games-Selling App
 
 A modern, responsive web application for buying and selling games, built with React.js, Node.js, and Express.js. This application provides a user-friendly interface and robust backend services to ensure a seamless experience for users.
@@ -96,7 +91,7 @@ Here are some key API endpoints available in the backend:
 | POST   | `/api/games`            | Add a new game (admin only)         |
 | DELETE | `/api/games/:id`        | Delete a game (admin only)          |
 
-<<<<<<< HEAD
+
 ## Contributing
 
 Contributions are welcome! If you have suggestions or improvements, please fork the repository and submit a pull request.
@@ -107,16 +102,11 @@ Contributions are welcome! If you have suggestions or improvements, please fork 
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
 
-=======
->>>>>>> d5de83a35284c5ff93e3a7f951048f77f8fbe533
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
----
 
-<<<<<<< HEAD
-Feel free to customize any sections to better fit your project or personal preferences!
-=======
-Feel free to customize any sections to better fit your project or personal preferences!
->>>>>>> d5de83a35284c5ff93e3a7f951048f77f8fbe533
+
+
