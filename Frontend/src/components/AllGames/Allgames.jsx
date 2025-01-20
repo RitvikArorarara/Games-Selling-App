@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function AllGames() {
@@ -54,8 +55,8 @@ export default function AllGames() {
     }
   }
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div className="flex text-center justify-center items-center text-9xl h-screen"><CircularProgress size={100} /></div>;
+  if (error) return <div className="flex text-center justify-center items-center text-9xl h-screen">Error: {error}</div>;
 
   // const gameList = async function getGames() {
   //   await axios.get("http://localhost:3001/api/v1/game/preview", {
