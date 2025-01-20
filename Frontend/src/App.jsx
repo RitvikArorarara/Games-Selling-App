@@ -2,7 +2,7 @@ import "./App.css";
 import Navbar from "./components/LandingPage/Navbar";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage";
-import { AllGames } from "./components/AllGames/Allgames";
+import AllGames from "./components/AllGames/Allgames";
 import Footer from "./components/LandingPage/Footer";
 import { ErrorPage } from "./components/ErrorPage";
 import SignIn from "./components/FormActions/SignIn";

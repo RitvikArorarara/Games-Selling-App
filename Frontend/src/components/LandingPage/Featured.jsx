@@ -1,6 +1,8 @@
 import FeaturedTabs from "./FeaturedTabs";
+import { useNavigate } from "react-router-dom";
 
 const Featured = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="relative">
@@ -9,7 +11,7 @@ const Featured = () => {
         </div>
         <FeaturedTabs></FeaturedTabs>
         <div className="flex justify-center items-center">
-          <a href="./allGames">
+          <a onClick={() => navigate("/allGames")}>
             <button className="px-6 py-3 mt-16 bg-transparent border-2 border-black rounded-md hover:bg-black hover:text-white transition duration-300 focus:ring-2 focus:ring-flack focus:outline-none">
               Latest Games
             </button>
