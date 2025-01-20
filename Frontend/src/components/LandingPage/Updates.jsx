@@ -13,8 +13,8 @@ const Updates = () => {
           <UpdateTabs></UpdateTabs>
         </div>
         <div className="flex justify-center">
-          <a href="./allGames">
-            <button onClick={() => navigate("/allGames")} className="px-6 py-3 mt-10 bg-transparent border-2 border-black rounded-md hover:bg-black hover:text-white transition duration-300 focus:ring-2 focus:ring-flack focus:outline-none">
+          <a onClick={() => navigate("/allGames")}>
+            <button  className="px-6 py-3 mt-10 bg-transparent border-2 border-black rounded-md hover:bg-black hover:text-white transition duration-300 focus:ring-2 focus:ring-flack focus:outline-none">
               All Games
             </button>
           </a>
